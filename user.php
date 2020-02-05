@@ -38,14 +38,25 @@ function op_form(){
 }
 function login(){
   global $smarty;
-  if($_REQUEST['name'] == "admin" and $_REQUEST['pass'] == "111111") {
+  $name = "admin"; 
+  $pass = "111111";
+  $token = "xxxxxx";
+
+  if($name == $_REQUEST['name'] && $pass == $_REQUEST['pass']) {
       $_SESSION['admin'] = true;
+      $_POST['remember'] = isset($_POST['remember']) ? $_POST['remember'] : "";
+      if ($_POST['remember']) {
+        setcookie("name",$name,time() + 360 * 24 * 365);
+        setcookie("token",$token,time() + 360 * 24 * 365);
+      }
   } else  { header('Location: user.php'); exit; }
   return;
 }
 function logout(){
   global $smarty;
   $_SESSION['admin'] = false;
+  setcookie("name","",time() - 360 * 24 * 365);
+  setcookie("token","",time() - 360 * 24 * 365);
   return;
 }
  

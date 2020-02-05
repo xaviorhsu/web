@@ -6,7 +6,6 @@
  */
 session_start(); //啟用 $_SESSION,前面不可以有輸出
 error_reporting(E_ALL);@ini_set('display_errors', true); //設定所有錯誤都顯示
-$_SESSION['admin']=isset($_SESSION['admin'])?$_SESSION['admin']:false;
 
 $http = 'http://';
 if (!empty($_SERVER['HTTPS'])) {
@@ -36,3 +35,13 @@ require_once _WEB_PATH.'/smarty.php';
 //require_once _WEB_PATH.'/sqlConfig.php';
 #引入設定檔
 require_once _WEB_PATH . '/function.php';
+
+$_SESSION['admin']=isset($_SESSION['admin'])?$_SESSION['admin']:false;
+// 為了cookie 使用
+if (!$_SESSION['admin']) {
+  $_COOKIE["name"] = isset ($_COOKIE["name"]) ? $_COOKIE["name"] : "";
+  $_COOKIE["token"] = isset ($_COOKIE["token"]) ? $_COOKIE["token"] : "";
+  if ( $_COOKIE["name"] = "admin" && $_COOKIE["token"] == "xxxxxx") {
+    $_SESSION['admin'] = true;
+  }
+}

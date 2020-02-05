@@ -37,17 +37,31 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about"><{$d00}></a>
+            <a class="nav-link js-scroll-trigger" href="#about">關於我們</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services"><{$d01}></a>
+            <a class="nav-link js-scroll-trigger" href="#services">產品服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"><{$d02}></a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">產品介紹</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact"><{$d03}></a>
+            <a class="nav-link js-scroll-trigger" href="#contact">聯絡我們</a>
           </li>
+          <{if $smarty.session.admin}>
+          <{* 後臺管理 *}>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php"">後臺管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php?op=logout">登 出</a>
+          </li>
+          <{else}>
+          <{* 網站首頁 *}>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">登 入</a>
+          </li>
+          <{/if}>
         </ul>
       </div>
     </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-01-31 11:34:54
+/* Smarty version 3.1.34-dev-7, created on 2020-02-05 15:46:36
   from 'D:\hsus_data\XAMPP\htdocs\web\templates\theme.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e33a05e700481_33268346',
+  'unifunc' => 'content_5e3a72dcb828e0_57846714',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '668d71c996a4a9503329ca8c791d1a4d5db896e6' => 
     array (
       0 => 'D:\\hsus_data\\XAMPP\\htdocs\\web\\templates\\theme.tpl',
-      1 => 1580441444,
+      1 => 1580888792,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e33a05e700481_33268346 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e3a72dcb828e0_57846714 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -63,21 +63,29 @@ css/creative.min.css" rel="stylesheet">
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto my-2 my-lg-0">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about"><?php echo $_smarty_tpl->tpl_vars['d00']->value;?>
-</a>
+            <a class="nav-link js-scroll-trigger" href="#about">關於我們</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services"><?php echo $_smarty_tpl->tpl_vars['d01']->value;?>
-</a>
+            <a class="nav-link js-scroll-trigger" href="#services">產品服務</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"><?php echo $_smarty_tpl->tpl_vars['d02']->value;?>
-</a>
+            <a class="nav-link js-scroll-trigger" href="#portfolio">產品介紹</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact"><?php echo $_smarty_tpl->tpl_vars['d03']->value;?>
-</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">聯絡我們</a>
           </li>
+          <?php if ($_SESSION['admin']) {?>
+                    <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php"">後臺管理</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php?op=logout">登 出</a>
+          </li>
+          <?php } else { ?>
+                    <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="user.php">登 入</a>
+          </li>
+          <?php }?>
         </ul>
       </div>
     </div>
